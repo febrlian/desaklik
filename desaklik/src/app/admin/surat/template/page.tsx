@@ -1,7 +1,6 @@
 "use client"
 
-import * as React from "react"
-import { FileText, Plus, FloppyDisk } from "@phosphor-icons/react"
+import { Save } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -20,7 +19,7 @@ export default function TemplateBuilderPage() {
             Batal
           </Button>
           <Button className="bg-[#0D9488] hover:bg-[#0D9488]/90 text-white flex items-center gap-2">
-            <FloppyDisk size={18} weight="bold" />
+            <Save size={18} strokeWidth={2.5} />
             <span>Simpan Template</span>
           </Button>
         </div>
