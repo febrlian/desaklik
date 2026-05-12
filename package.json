@@ -1,0 +1,23 @@
+{
+  "name": "desaklik-workspace",
+  "private": true,
+  "workspaces": [
+    "desaklik",
+    "api"
+  ],
+  "scripts": {
+    "dev": "concurrently -n web,api -c cyan,magenta \"npm run dev:web\" \"npm run dev:api\"",
+    "dev:web": "npm run dev --workspace desaklik",
+    "dev:api": "npm run start:dev --workspace api",
+    "db:up": "docker compose up -d postgres",
+    "db:down": "docker compose down",
+    "db:logs": "docker compose logs -f postgres",
+    "prisma:generate": "npm run prisma:generate --workspace api",
+    "prisma:migrate": "npm run prisma:migrate --workspace api",
+    "prisma:studio": "npm run prisma:studio --workspace api",
+    "prisma:seed": "npm run prisma:seed --workspace api"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

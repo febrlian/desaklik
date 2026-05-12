@@ -1,0 +1,22 @@
+node_modules/
+.npm/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+
+# Build outputs
+/dist
+/coverage
+
+# Frontend
+/desaklik/.next
+/desaklik/out
+
+# Backend
+/api/dist
+/api/.nestjs
+
+# Prisma
+/api/prisma/dev.db
