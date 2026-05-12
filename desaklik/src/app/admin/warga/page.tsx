@@ -101,7 +101,7 @@ export default function WargaHubPage() {
                     <div className="text-xs text-stone-500">Ibu: {warga.namaIbu}</div>
                   </TableCell>
                   <TableCell className="text-right">
-                    <Button variant="ghost" size="icon" className="h-8 w-8 text-stone-400 hover:text-[#0D9488] hover:bg-[#0D9488]/10">
+                    <Button variant="ghost" size="icon" className="h-8 w-8 text-stone-400 hover:text-[#0D9488] hover:bg-[#0D9488]/10" aria-label={`Opsi untuk ${warga.nama}`}>
                       <DotsThree size={20} weight="bold" />
                     </Button>
                   </TableCell>
