@@ -18,6 +18,17 @@ const services = [
   { label: "Berita", icon: Newspaper, href: "/berita" },
 ];
 
+const SERVICE_CARDS = services.map((s) => (
+  <a key={s.label} href={s.href}>
+    <Card className="hover:bg-accent transition-colors">
+      <CardContent className="p-4 flex flex-col items-center gap-2 text-center">
+        <s.icon className="h-6 w-6 text-primary" />
+        <span className="text-sm font-medium">{s.label}</span>
+      </CardContent>
+    </Card>
+  </a>
+));
+
 export default function PortalHomePage() {
   const greeting = () => {
     const hour = new Date().getHours();
@@ -45,16 +56,7 @@ export default function PortalHomePage() {
       </div>
 
       <div className="grid grid-cols-2 gap-3">
-        {services.map((s) => (
-          <a key={s.label} href={s.href}>
-            <Card className="hover:bg-accent transition-colors">
-              <CardContent className="p-4 flex flex-col items-center gap-2 text-center">
-                <s.icon className="h-6 w-6 text-primary" />
-                <span className="text-sm font-medium">{s.label}</span>
-              </CardContent>
-            </Card>
-          </a>
-        ))}
+        {SERVICE_CARDS}
       </div>
 
       <div className="space-y-3">
