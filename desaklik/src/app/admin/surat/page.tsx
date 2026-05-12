@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { FileText, Plus, FilePlus, DownloadSimple, Printer } from "@phosphor-icons/react"
+import { FileText, Plus, FilePlus, Printer } from "@phosphor-icons/react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"

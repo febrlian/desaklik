@@ -1,10 +1,9 @@
 "use client"
 
 import * as React from "react"
-import { ClockCounterClockwise, MagnifyingGlass, Funnel } from "@phosphor-icons/react"
-import { Button } from "@/components/ui/button"
+import { MagnifyingGlass } from "@phosphor-icons/react"
 import { Input } from "@/components/ui/input"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
 const historyData = [
