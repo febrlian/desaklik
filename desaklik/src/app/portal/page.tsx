@@ -1,9 +1,8 @@
 "use client"
 
 import * as React from "react"
-import { FileText, MagnifyingGlass, WarningCircle, CaretRight } from "@phosphor-icons/react"
+import { FileText, MagnifyingGlass, CaretRight } from "@phosphor-icons/react"
 import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 
 export default function PortalHomePage() {
   return (
