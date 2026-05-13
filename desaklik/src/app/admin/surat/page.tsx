@@ -66,7 +66,7 @@ export default function SuratInstanPage() {
                     </TableCell>
                     <TableCell className="text-right">
                       {letter.status === "APPROVED" ? (
-                        <Button variant="ghost" size="icon" className="h-8 w-8 text-[#0D9488] hover:bg-[#0D9488]/10">
+                        <Button variant="ghost" size="icon" className="h-8 w-8 text-[#0D9488] hover:bg-[#0D9488]/10" aria-label={`Cetak surat ${letter.id}`}>
                           <Printer size={18} />
                         </Button>
                       ) : (
