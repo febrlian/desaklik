@@ -24,6 +24,11 @@ cp api/.env.example api/.env
 cp desaklik/.env.example desaklik/.env.local
 ```
 
+Shared local defaults live in the root `.env` (database and service ports), while each app keeps its own runtime env file:
+
+- `api/.env` for NestJS runtime settings (`DATABASE_URL`, JWT, CORS)
+- `desaklik/.env.local` for browser-safe frontend values (`NEXT_PUBLIC_API_URL`)
+
 ## Install Dependencies
 
 ```bash
@@ -64,6 +69,12 @@ npm run dev:api
 - Frontend: http://localhost:3000
 - API health: http://localhost:4000/health
 - PostgreSQL: localhost:5432
+
+Quick health check:
+
+```bash
+curl http://localhost:4000/health
+```
 
 ## Stop Database
 
