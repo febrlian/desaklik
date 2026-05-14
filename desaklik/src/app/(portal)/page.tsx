@@ -30,6 +30,19 @@ const SERVICE_CARDS = services.map((s) => (
   </Link>
 ));
 
+const RECENT_NEWS_CARDS = mockNews.slice(0, 3).map((n) => (
+  <Link key={n.id} href={`/berita/${n.slug}`}>
+    <Card className="overflow-hidden hover:bg-accent transition-colors">
+      <CardContent className="p-3">
+        <p className="text-sm font-medium line-clamp-2">{n.title}</p>
+        <p className="text-xs text-muted-foreground mt-1">
+          {new Date(n.publishedAt).toLocaleDateString("id-ID")}
+        </p>
+      </CardContent>
+    </Card>
+  </Link>
+));
+
 export default function PortalHomePage() {
   const greeting = () => {
     const hour = new Date().getHours();
@@ -68,18 +81,7 @@ export default function PortalHomePage() {
           </Link>
         </div>
         <div className="space-y-3">
-          {mockNews.slice(0, 3).map((n) => (
-            <Link key={n.id} href={`/berita/${n.slug}`}>
-              <Card className="overflow-hidden hover:bg-accent transition-colors">
-                <CardContent className="p-3">
-                  <p className="text-sm font-medium line-clamp-2">{n.title}</p>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    {new Date(n.publishedAt).toLocaleDateString("id-ID")}
-                  </p>
-                </CardContent>
-              </Card>
-            </Link>
-          ))}
+          {RECENT_NEWS_CARDS}
         </div>
       </div>
     </div>
