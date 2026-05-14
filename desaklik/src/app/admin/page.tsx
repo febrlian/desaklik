@@ -1,6 +1,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Users, FileText, Clock, CheckCircle } from "lucide-react"
 
+const RECENT_ACTIVITIES = [
+  { name: 'Budi Santoso', doc: 'Surat Keterangan Usaha', time: '10 menit yang lalu' },
+  { name: 'Siti Aminah', doc: 'Surat Domisili', time: '1 jam yang lalu' },
+  { name: 'Agus Pratama', doc: 'Surat Kelahiran', time: '3 jam yang lalu' }
+];
+
 export default function AdminDashboard() {
   return (
     <div className="space-y-6">
@@ -57,11 +63,7 @@ export default function AdminDashboard() {
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              {[
-                { name: 'Budi Santoso', doc: 'Surat Keterangan Usaha', time: '10 menit yang lalu' },
-                { name: 'Siti Aminah', doc: 'Surat Domisili', time: '1 jam yang lalu' },
-                { name: 'Agus Pratama', doc: 'Surat Kelahiran', time: '3 jam yang lalu' }
-              ].map((activity, i) => (
+              {RECENT_ACTIVITIES.map((activity, i) => (
                 <div key={i} className="flex items-center space-x-4">
                   <div className="w-2 h-2 bg-[#0D9488] rounded-full" />
                   <div className="flex-1">
