@@ -16,9 +16,9 @@
 - [x] Connect frontend tables to real data via TanStack Query (if applicable)
 
 ## Phase 3: Letter Generation Engine Complete (Current Status)
-- [ ] Implement Puppeteer PDF Generation Service in NestJS
-- [ ] Store generated letters in S3 bucket (e.g. AWS / Supabase Storage)
-- [ ] Build robust dynamic variable parser for templates
+- [x] Implement Puppeteer PDF Generation Service in NestJS
+- [x] Store generated letters in S3 bucket (e.g. AWS / Supabase Storage)
+- [x] Build robust dynamic variable parser for templates
 
 ## Phase 4: Citizen Portal & Public Access
 - [ ] Implement PWA features for mobile-first portal
