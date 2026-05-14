@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { FileText, Plus, FilePlus, Printer } from "@phosphor-icons/react"
+import { FileText, Plus, FilePlus, Printer } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -14,12 +14,15 @@ import {
   TableRow,
 } from "@/components/ui/table"
 
+const MOCK_LETTERS = [
+  { id: "SRT-001", type: "Surat Keterangan Usaha", citizen: "Budi Santoso", date: "2026-05-11", status: "PENDING" },
+  { id: "SRT-002", type: "Surat Domisili", citizen: "Siti Aminah", date: "2026-05-10", status: "APPROVED" },
+  { id: "SRT-003", type: "Surat Tidak Mampu", citizen: "Hendra Wijaya", date: "2026-05-09", status: "DRAFT" },
+]
+
+const ACTIVE_TEMPLATES = ['Surat Keterangan Usaha', 'Surat Domisili', 'Surat Kelahiran']
+
 export default function SuratInstanPage() {
-  const letters = [
-    { id: "SRT-001", type: "Surat Keterangan Usaha", citizen: "Budi Santoso", date: "2026-05-11", status: "PENDING" },
-    { id: "SRT-002", type: "Surat Domisili", citizen: "Siti Aminah", date: "2026-05-10", status: "APPROVED" },
-    { id: "SRT-003", type: "Surat Tidak Mampu", citizen: "Hendra Wijaya", date: "2026-05-09", status: "DRAFT" },
-  ]
 
   return (
     <div className="space-y-6">
@@ -30,7 +33,7 @@ export default function SuratInstanPage() {
         </div>
         <div className="flex items-center space-x-3 w-full sm:w-auto">
           <Button className="bg-[#0D9488] hover:bg-[#0D9488]/90 text-white flex items-center gap-2">
-            <FilePlus size={18} weight="bold" />
+            <FilePlus size={18} />
             <span>Buat Surat Baru</span>
           </Button>
         </div>
@@ -54,7 +57,7 @@ export default function SuratInstanPage() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {letters.map((letter) => (
+                {MOCK_LETTERS.map((letter) => (
                   <TableRow key={letter.id} className="border-stone-200 hover:bg-[#f5faf8]">
                     <TableCell className="font-medium text-[#171d1c]">{letter.id}</TableCell>
                     <TableCell className="text-[#0D9488] font-medium">{letter.type}</TableCell>
@@ -89,7 +92,7 @@ export default function SuratInstanPage() {
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              {['Surat Keterangan Usaha', 'Surat Domisili', 'Surat Kelahiran'].map((template, idx) => (
+              {ACTIVE_TEMPLATES.map((template, idx) => (
                 <div key={idx} className="flex items-center justify-between p-3 rounded-lg border border-stone-200 bg-[#f5f4f4]/50">
                   <div className="flex items-center gap-3">
                     <FileText className="text-[#0D9488]" size={20} />
