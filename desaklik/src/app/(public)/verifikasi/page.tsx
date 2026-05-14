@@ -44,6 +44,7 @@ function VerifikasiContent() {
 
   useEffect(() => {
     if (tokenFromUrl) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       handleVerify(tokenFromUrl);
     }
   }, [tokenFromUrl]);

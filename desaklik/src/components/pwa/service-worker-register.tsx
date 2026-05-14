@@ -1,11 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { toast } from "sonner";
 
 export function ServiceWorkerRegister() {
-  const [isOfflineReady, setIsOfflineReady] = useState(false);
-
   useEffect(() => {
     if (typeof window === "undefined" || !("serviceWorker" in navigator)) {
       return;
@@ -24,7 +22,6 @@ export function ServiceWorkerRegister() {
                 if (navigator.serviceWorker.controller) {
                   toast.info("Update tersedia. Refresh halaman untuk memperbarui.");
                 } else {
-                  setIsOfflineReady(true);
                   toast.success("Aplikasi siap digunakan offline.");
                 }
               }

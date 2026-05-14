@@ -6,6 +6,7 @@ import { NewsCard } from "@/components/berita/news-card";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function PublicBeritaPage() {
   const [search, setSearch] = useState("");
@@ -17,7 +18,8 @@ export default function PublicBeritaPage() {
   const newsList = data?.data ?? [];
 
   const filtered = newsList.filter(
-    (n) =>
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (n: any) =>
       n.title.toLowerCase().includes(search.toLowerCase()) ||
       n.category.toLowerCase().includes(search.toLowerCase())
   );
@@ -53,10 +55,11 @@ export default function PublicBeritaPage() {
         )}
 
         <div className="grid gap-4 sm:grid-cols-2">
-          {filtered.map((news) => (
-            <a key={news.id} href={`/berita/${news.slug}`}>
+          {// eslint-disable-next-line @typescript-eslint/no-explicit-any
+          filtered.map((news: any) => (
+            <Link key={news.id} href={`/berita/${news.slug}`}>
               <NewsCard news={news} />
-            </a>
+            </Link>
           ))}
         </div>
 
