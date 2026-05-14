@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { mockLetters } from "@/lib/data/surat";
 import { LetterStatusBadge } from "@/components/jejak/letter-status-badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -10,11 +10,14 @@ import { Search } from "lucide-react";
 export default function PortalLacakPage() {
   const [search, setSearch] = useState("");
 
-  const filtered = mockLetters.filter(
-    (l) =>
-      l.citizenName.toLowerCase().includes(search.toLowerCase()) ||
-      l.id.toLowerCase().includes(search.toLowerCase())
-  );
+  const filtered = useMemo(() => {
+    const lowerSearch = search.toLowerCase();
+    return mockLetters.filter(
+      (l) =>
+        l.citizenName.toLowerCase().includes(lowerSearch) ||
+        l.id.toLowerCase().includes(lowerSearch)
+    );
+  }, [search]);
 
   return (
     <div className="space-y-4">
