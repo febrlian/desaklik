@@ -30,6 +30,20 @@ const services = [
   },
 ];
 
+const servicesList = services.map((s) => (
+  <Card key={s.title}>
+    <CardContent className="p-6 flex items-start gap-4">
+      <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+        <s.icon className="h-5 w-5 text-primary" />
+      </div>
+      <div>
+        <h3 className="font-semibold">{s.title}</h3>
+        <p className="text-sm text-muted-foreground mt-1">{s.desc}</p>
+      </div>
+    </CardContent>
+  </Card>
+));
+
 export default function LayananPage() {
   return (
     <div className="flex flex-col">
@@ -44,19 +58,7 @@ export default function LayananPage() {
 
       <section className="py-8 px-4">
         <div className="max-w-3xl mx-auto space-y-4">
-          {services.map((s) => (
-            <Card key={s.title}>
-              <CardContent className="p-6 flex items-start gap-4">
-                <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                  <s.icon className="h-5 w-5 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-semibold">{s.title}</h3>
-                  <p className="text-sm text-muted-foreground mt-1">{s.desc}</p>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+          {servicesList}
         </div>
       </section>
 
