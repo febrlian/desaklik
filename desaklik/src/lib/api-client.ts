@@ -31,3 +31,32 @@ export function fetchHealth() {
     method: "GET",
   });
 }
+
+// Ensure proper implementation is in place, since the original file was missing these we need to add them to fetch from real API.
+export function fetchLetterById(id: string) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return fetchApi<any>(`/letters/${id}`, {
+    method: "GET",
+  });
+}
+
+export function fetchNews() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return fetchApi<any>("/news", {
+    method: "GET",
+  });
+}
+
+export function fetchNewsBySlug(slug: string) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return fetchApi<any>(`/news/${slug}`, {
+    method: "GET",
+  });
+}
+
+export function verifyLetter(token: string) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return fetchApi<any>(`/verify?token=${token}`, {
+    method: "GET",
+  });
+}

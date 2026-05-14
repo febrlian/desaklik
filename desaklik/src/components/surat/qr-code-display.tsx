@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import {
   Dialog,
   DialogContent,
@@ -38,11 +39,14 @@ export function QRCodeDisplay({ qrCodeUrl, size = "md" }: QRCodeDisplayProps) {
       <DialogTrigger
         render={
           <button className="block">
-            <img
-              src={qrCodeUrl}
-              alt="QR Code Verifikasi"
-              className={`${sizeMap[size]} object-contain rounded-lg border cursor-pointer hover:opacity-90 transition-opacity`}
-            />
+            <div className={`${sizeMap[size]} relative inline-block`}>
+              <Image
+                src={qrCodeUrl}
+                alt="QR Code Verifikasi"
+                fill
+                className="object-contain rounded-lg border cursor-pointer hover:opacity-90 transition-opacity"
+              />
+            </div>
           </button>
         }
       />
@@ -51,11 +55,14 @@ export function QRCodeDisplay({ qrCodeUrl, size = "md" }: QRCodeDisplayProps) {
           <DialogTitle>Kode QR Verifikasi</DialogTitle>
         </DialogHeader>
         <div className="flex flex-col items-center gap-4 py-4">
-          <img
-            src={qrCodeUrl}
-            alt="QR Code Verifikasi"
-            className="h-64 w-64 object-contain rounded-lg border"
-          />
+          <div className="h-64 w-64 relative inline-block">
+            <Image
+              src={qrCodeUrl}
+              alt="QR Code Verifikasi"
+              fill
+              className="object-contain rounded-lg border"
+            />
+          </div>
           <p className="text-sm text-muted-foreground text-center">
             Pindai kode QR ini untuk memverifikasi keaslian surat.
           </p>

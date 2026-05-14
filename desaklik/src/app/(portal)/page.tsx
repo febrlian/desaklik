@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { mockNews } from "@/lib/data/berita";
@@ -19,14 +20,14 @@ const services = [
 ];
 
 const SERVICE_CARDS = services.map((s) => (
-  <a key={s.label} href={s.href}>
+  <Link key={s.label} href={s.href}>
     <Card className="hover:bg-accent transition-colors">
       <CardContent className="p-4 flex flex-col items-center gap-2 text-center">
         <s.icon className="h-6 w-6 text-primary" />
         <span className="text-sm font-medium">{s.label}</span>
       </CardContent>
     </Card>
-  </a>
+  </Link>
 ));
 
 export default function PortalHomePage() {
@@ -62,13 +63,13 @@ export default function PortalHomePage() {
       <div className="space-y-3">
         <div className="flex items-center justify-between">
           <h2 className="font-semibold">Pengumuman Terbaru</h2>
-          <a href="/berita" className="text-xs text-primary">
+          <Link href="/berita" className="text-xs text-primary">
             Lihat Semua
-          </a>
+          </Link>
         </div>
         <div className="space-y-3">
           {mockNews.slice(0, 3).map((n) => (
-            <a key={n.id} href={`/berita/${n.slug}`}>
+            <Link key={n.id} href={`/berita/${n.slug}`}>
               <Card className="overflow-hidden hover:bg-accent transition-colors">
                 <CardContent className="p-3">
                   <p className="text-sm font-medium line-clamp-2">{n.title}</p>
@@ -77,7 +78,7 @@ export default function PortalHomePage() {
                   </p>
                 </CardContent>
               </Card>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

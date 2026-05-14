@@ -54,3 +54,19 @@ model RefreshToken {
   @@index([userId])
   @@index([tenantId])
 }
+
+model News {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  excerpt     String
+  content     String   @db.Text
+  image       String?
+  author      String
+  publishedAt DateTime
+  category    String
+  isPublished Boolean  @default(false)
+  tenantId    String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

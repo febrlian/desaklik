@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
+import Image from "next/image";
 
 interface NewsDetailProps {
   news: News;
@@ -37,11 +38,14 @@ export function NewsDetail({ news, onBack }: NewsDetailProps) {
 
       <div className="h-48 bg-muted rounded-lg flex items-center justify-center text-muted-foreground">
         {news.image ? (
-          <img
-            src={news.image}
-            alt={news.title}
-            className="h-full w-full object-cover rounded-lg"
-          />
+          <div className="h-full w-full relative">
+            <Image
+              src={news.image}
+              alt={news.title}
+              fill
+              className="object-cover rounded-lg"
+            />
+          </div>
         ) : (
           <span className="text-sm">Gambar Berita</span>
         )}
