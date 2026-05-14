@@ -1,5 +1,6 @@
 "use client";
 
+import { useMemo } from "react";
 import { useParams } from "next/navigation";
 import { mockBorrowRequests } from "@/lib/data/aset";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,7 +11,7 @@ import { ArrowLeft } from "lucide-react";
 export default function PortalPinjamDetailPage() {
   const params = useParams();
   const id = params.id as string;
-  const req = mockBorrowRequests.find((r) => r.id === id);
+  const req = useMemo(() => mockBorrowRequests.find((r) => r.id === id), [id]);
 
   if (!req) {
     return (
