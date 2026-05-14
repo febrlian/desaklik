@@ -1,6 +1,6 @@
 "use client"
 
-import * as React from "react"
+import { FileText } from "lucide-react"
 import { MagnifyingGlass } from "@phosphor-icons/react"
 import { Input } from "@/components/ui/input"
 import { Card } from "@/components/ui/card"
@@ -70,5 +70,3 @@ export default function JejakSuratPage() {
     </div>
   )
 }
-// Adding missing FileText icon import for this file
-import { FileText } from "lucide-react"
