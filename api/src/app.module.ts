@@ -5,6 +5,7 @@ import { AuthModule } from "./auth/auth.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { TenancyModule } from "./tenancy/tenancy.module";
+import { LettersModule } from './letters/letters.module';
 
 // Regex for validating ms library formats
 // Matches optional negative sign, integer or decimal number, optional space, and valid unit
@@ -36,12 +37,17 @@ const MS_FORMAT_REGEX = /^-?\d+(?:\.\d+)?\s*(?:msecs?|ms|seconds?|secs?|s|minute
             'string.pattern.base': 'JWT_REFRESH_EXPIRES_IN must be a valid time format (e.g. 15m, 1h, 7d)'
           }),
         CORS_ORIGIN: Joi.string().default("http://localhost:3000"),
+        AWS_REGION: Joi.string().default("us-east-1"),
+        AWS_ACCESS_KEY_ID: Joi.string().optional(),
+        AWS_SECRET_ACCESS_KEY: Joi.string().optional(),
+        AWS_S3_BUCKET_NAME: Joi.string().optional(),
       }),
     }),
     PrismaModule,
     HealthModule,
     AuthModule,
     TenancyModule,
+    LettersModule,
   ],
 })
 export class AppModule {}
