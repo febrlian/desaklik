@@ -15,15 +15,15 @@
 - [x] Configure PostgreSQL Multi-Schema isolation (Tenant per Village)
 - [x] Connect frontend tables to real data via TanStack Query (if applicable)
 
-## Phase 3: Letter Generation Engine Complete (Current Status)
+## Phase 3: Letter Generation Engine Complete
 - [x] Implement Puppeteer PDF Generation Service in NestJS
 - [x] Store generated letters in S3 bucket (e.g. AWS / Supabase Storage)
 - [x] Build robust dynamic variable parser for templates
 
-## Phase 4: Citizen Portal & Public Access
-- [ ] Implement PWA features for mobile-first portal
-- [ ] Enable QR Code generation and verification for letters
-- [ ] Launch Bale Warta (Public News Feed) reading interface
+## Phase 4: Citizen Portal & Public Access (Complete)
+- [x] Implement PWA features for mobile-first portal
+- [x] Enable QR Code generation and verification for letters
+- [x] Launch Bale Warta (Public News Feed) reading interface
 
 ## Phase 5: GIS & Advanced Modules
 - [ ] Integrate Mapbox or Leaflet for 'Peta Kita' GIS module

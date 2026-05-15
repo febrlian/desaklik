@@ -11,6 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  manifest: "/manifest.ts",
   title: "DesaKlik - Sistem Administrasi Desa Digital",
   description:
     "Platform SaaS untuk administrasi desa di Indonesia. Kelola warga, surat menyurat, aset, berita, dan peta desa dalam satu aplikasi.",
@@ -30,6 +31,22 @@ export default function RootLayout({
             <ToastProvider />
           </QueryProvider>
         </ThemeProvider>
+
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                if ('serviceWorker' in navigator) {
+                  window.addEventListener('load', function() {
+                    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    }, function(err) {
+                      console.log('ServiceWorker registration failed: ', err);
+                    });
+                  });
+                }
+              `,
+            }}
+          />
       </body>
     </html>
   );
