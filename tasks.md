@@ -32,9 +32,30 @@
 
 ---
 
-## Phase 3: Letter Generation Engine Complete (next / upcoming)
+## Phase 3: Letter Generation Engine Complete (complete)
 
-**Planned:**
+**Date:** Completed
+
+**Implemented:**
 - Implement Puppeteer PDF Generation Service in NestJS
 - Store generated letters in S3 bucket (e.g. AWS / Supabase Storage)
 - Build robust dynamic variable parser for templates
+
+---
+
+## Phase 4: Citizen Portal & Public Access (complete)
+
+**Date:** Completed
+
+**Implemented:**
+- Implement PWA features for mobile-first portal
+- Enable QR Code generation and verification for letters
+- Launch Bale Warta (Public News Feed) reading interface
+
+---
+
+## Phase 5: GIS & Advanced Modules (next / upcoming)
+
+**Planned:**
+- Integrate Mapbox or Leaflet for 'Peta Kita' GIS module
+- Plot village boundaries and properties

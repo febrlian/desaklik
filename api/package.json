@@ -36,8 +36,10 @@
   "devDependencies": {
     "@eslint/js": "^9.27.0",
     "@nestjs/cli": "^11.0.10",
+    "@nestjs/testing": "^11.1.21",
     "@types/express": "^5.0.3",
     "@types/handlebars": "^4.0.40",
+    "@types/jest": "^30.0.0",
     "@types/node": "^20.17.57",
     "@types/passport-jwt": "^4.0.1",
     "@types/puppeteer": "^5.4.7",
