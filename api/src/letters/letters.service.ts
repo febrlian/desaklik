@@ -47,7 +47,7 @@ export class LettersService {
         verificationToken: token,
       };
 
-      const parsedHtml = this.templateParserService.parse(templateHtml, dataWithQr);
+      const parsedHtml = await this.templateParserService.parse(templateHtml, dataWithQr);
       const pdfBuffer = await this.pdfGeneratorService.generatePdf(parsedHtml);
       const s3Url = await this.s3StorageService.uploadFile(pdfBuffer, 'generated-letters');
 

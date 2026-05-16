@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "buildCommand": "cd desaklik && npm run build",
+  "outputDirectory": "desaklik/.next",
+  "framework": "nextjs",
+  "installCommand": "npm install",
+  "ignoreCommand": "git diff --quiet HEAD^ HEAD ./desaklik",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/desaklik/$1"
+    }
+  ]
+}

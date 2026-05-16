@@ -1,11 +1,14 @@
 import { Module } from "@nestjs/common";
-import { ConfigModule } from "@nestjs/config";
+import { ConfigModule, ConfigService } from "@nestjs/config";
+import { CacheModule } from "@nestjs/cache-manager";
+import { redisStore } from "cache-manager-redis-yet";
 import * as Joi from "joi";
 import { AuthModule } from "./auth/auth.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { TenancyModule } from "./tenancy/tenancy.module";
 import { LettersModule } from './letters/letters.module';
+import { NewsModule } from './news/news.module';
 
 // Regex for validating ms library formats
 // Matches optional negative sign, integer or decimal number, optional space, and valid unit
@@ -40,14 +43,29 @@ const MS_FORMAT_REGEX = /^-?\d+(?:\.\d+)?\s*(?:msecs?|ms|seconds?|secs?|s|minute
         AWS_REGION: Joi.string().default("us-east-1"),
         AWS_ACCESS_KEY_ID: Joi.string().optional(),
         AWS_SECRET_ACCESS_KEY: Joi.string().optional(),
+
         AWS_S3_BUCKET_NAME: Joi.string().optional(),
+        REDIS_HOST: Joi.string().default('localhost'),
+        REDIS_PORT: Joi.number().default(6379),
       }),
+    }),
+
+    CacheModule.registerAsync({
+      isGlobal: true,
+      imports: [ConfigModule],
+      useFactory: async (configService: ConfigService) => ({
+        store: redisStore,
+        url: `redis://${configService.get('REDIS_HOST', 'localhost')}:${configService.get('REDIS_PORT', 6379)}`,
+        ttl: 60 * 1000, // 1 minute default TTL
+      }),
+      inject: [ConfigService],
     }),
     PrismaModule,
     HealthModule,
     AuthModule,
     TenancyModule,
     LettersModule,
+    NewsModule,
   ],
 })
 export class AppModule {}
