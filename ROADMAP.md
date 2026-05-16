@@ -25,9 +25,9 @@
 - [x] Enable QR Code generation and verification for letters
 - [x] Launch Bale Warta (Public News Feed) reading interface
 
-## Phase 5: GIS & Advanced Modules
-- [ ] Integrate Mapbox or Leaflet for 'Peta Kita' GIS module
-- [ ] Plot village boundaries and properties
+## Phase 5: GIS & Advanced Modules (Complete)
+- [x] Integrate Mapbox or Leaflet for 'Peta Kita' GIS module
+- [x] Plot village boundaries and properties
 
 ## Phase 6: Production Launch
 - [ ] Security Audits & Load Testing
