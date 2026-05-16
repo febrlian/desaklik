@@ -1,4 +1,5 @@
-import { Controller, Get, Post, Patch, Delete, Body, Param, Req, UseGuards, HttpCode, HttpStatus } from '@nestjs/common';
+import { Controller, Get, Post, Patch, Delete, Body, Param, Req, UseGuards, HttpCode, HttpStatus, UseInterceptors } from '@nestjs/common';
+import { CacheInterceptor, CacheTTL } from '@nestjs/cache-manager';
 import { NewsService, CreateNewsDto, UpdateNewsDto } from './news.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { Request } from 'express';
@@ -11,6 +12,8 @@ export class NewsController {
   constructor(private readonly newsService: NewsService) {}
 
   @Get()
+  @UseInterceptors(CacheInterceptor)
+  @CacheTTL(300000) // 5 minutes
   async findAllPublished(@Req() req: TenantRequest) {
     const tenantId = req.tenantContext?.id || 'unknown';
     const news = await this.newsService.findAllPublished(tenantId);
@@ -21,6 +24,8 @@ export class NewsController {
   }
 
   @Get(':slug')
+  @UseInterceptors(CacheInterceptor)
+  @CacheTTL(300000) // 5 minutes
   async findBySlug(@Param('slug') slug: string, @Req() req: TenantRequest) {
     const tenantId = req.tenantContext?.id || 'unknown';
     const news = await this.newsService.findBySlug(slug, tenantId);
