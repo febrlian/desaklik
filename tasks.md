@@ -54,8 +54,12 @@
 
 ---
 
-## Phase 5: GIS & Advanced Modules (next / upcoming)
+## Phase 5: GIS & Advanced Modules (complete)
+
+**Date:** Completed
+
+**Implemented:**
 
 **Planned:**
-- Integrate Mapbox or Leaflet for 'Peta Kita' GIS module
-- Plot village boundaries and properties
+- Integrated Leaflet for 'Peta Kita' GIS module
+- Plotted village boundaries, properties, and household data

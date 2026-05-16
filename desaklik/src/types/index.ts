@@ -120,4 +120,12 @@ export interface Parcel {
   landUse: string;
   location: string;
   coordinates: [number, number];
+  householdData?: {
+    headOfHousehold: string;
+    numberOfResidents: number;
+    economicVariables?: {
+      electronicPets: number;
+      landOwnershipArea: number;
+    };
+  };
 }
